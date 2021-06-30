@@ -156,17 +156,23 @@ address {
 }
 
 /* フォト */
-.photos{
+
+.photos {
   width: 750px;
 }
+
 /* フォトリスト */
-.photos-list li{
+
+.photos-list li {
   margin-bottom: 30px;
 }
-.photos figcaption{
+
+.photos figcaption {
   font-size: 12px;
 }
+
 /* アクセス */
+
 .access {
   width: 600px;
   /* アクセス全体の横幅 */
@@ -175,9 +181,11 @@ address {
 /* アクセス 左右横並び */
 
 .access-row {
-  /* flexbox（横並びにする要素の親に指定） */
+  display: flex;
   /* flexboxの中身を左右均等に配置する */
+  justify-content: space-between;
   /* flexboxの中身の上下を中央揃えにする */
+  align-items: center;
   margin: 0 auto;
 }
 
@@ -198,6 +206,7 @@ address {
 
 .access-map {
   /* フレックスアイテムへの指定 */
+  flex: 0 1 295px;
   max-width: 295px;
 }
 
@@ -216,6 +225,7 @@ address {
 
 .footer-container {
   /* flexbox（横並びにする要素の親に指定） */
+  display: flex;
   width: 660px;
   margin: 0 auto;
 }
@@ -224,6 +234,7 @@ address {
 
 .footer-logo {
   /* フレックスアイテムへの指定 */
+  flex: 0 1 200px;
   max-width: 200px;
   margin: 0;
 }
@@ -232,6 +243,7 @@ address {
 
 .footer-body {
   /* フレックスアイテムへの指定 */
+  flex: 0 1 auto;
   padding-top: 20px;
 }
 
@@ -277,7 +289,54 @@ address {
 /* ここから追加課題用の設定 */
 
 /* YouTube・Google MAPのサイズ */
-
+figure iframe{
+  width: 100%;
+}
 /* トップ画像をスライド */
-
+.slide{
+  white-space: nowrap;
+  overflow: hidden;
+}
+.slide img{
+  width: inherit;
+  height: inherit;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+@keyframes slide-4{
+  0%{margin-left: 0;}
+  33%{margin-left: -100%}
+  66%{margin-left: -200%}
+  100%{margin-left: -300%}
+}
+.slide > :first-child{
+  animation-name: slide-4;
+  animation-duration: 40s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 5s;
+  animation-iteration-count: infinite; 
+}
 /* トップに戻るボタンを右下に固定 */
+
+.pagetop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+/* マーカーを指定 */
+
+.menu-list li {
+  list-style: none;
+}
+.menu-list li::before{
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background-image: url(../img/menu_li.png);
+  background-size: contain;
+  vertical-align: middle;
+}
